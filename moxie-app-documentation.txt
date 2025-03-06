@@ -1,0 +1,144 @@
+# Moxie Movie App - Development Documentation
+
+## Overview
+Moxie is a premium movie discovery platform built with Next.js, React, and TypeScript. It provides users with a seamless experience to explore, search, and manage their favorite movies. The app integrates with The Movie Database (TMDB) API to fetch movie data and implements several client-side features like watchlists, favorites, and personalized recommendations.
+
+## Architecture
+
+### Tech Stack
+- **Framework**: Next.js 14 with App Router
+- **UI Library**: React with TypeScript
+- **Styling**: Tailwind CSS with shadcn/ui components
+- **Animation**: Framer Motion
+- **State Management**: React Hooks and Context
+- **API Integration**: TMDB API
+- **Deployment**: Vercel
+
+### Key Components
+
+1. **Core Pages**:
+   - Home page with featured movies and carousels
+   - Movie detail page with comprehensive information
+   - Person detail page for actors and directors
+   - Movies page with search and filtering capabilities
+   - User collections (Watchlist, Favorites, Recently Viewed)
+
+2. **Custom Hooks**:
+   - `useLocalStorage`: Persistent client-side storage
+   - `useFavorites`: Manage favorite movies
+   - `useWatchlist`: Manage watchlist with import/export
+   - `useRecentlyViewed`: Track and display viewing history
+   - `useRecommendations`: Generate personalized recommendations
+   - `useDebounce`: Optimize search input performance
+
+3. **UI Components**:
+   - `MovieCard`: Reusable card with hover effects and actions
+   - `MovieCarousel`: Horizontal scrollable movie lists
+   - `HeroSection`: Featured movie showcase with animations
+   - `MovieDetailHero`: Detailed movie header with parallax
+   - `PersonDetailHero`: Actor/director profile with sticky scrolling
+   - `Navbar`: Responsive navigation with mobile menu
+   - `BrandLogo`: Animated logo with theme awareness
+
+## Recommendation Algorithm
+
+The recommendation system is one of the core features of Moxie. Here's how it works:
+
+1. **Data Collection**:
+   - The system tracks three user interaction types:
+     - Recently viewed movies
+     - Favorited movies
+     - Movies added to watchlist
+
+2. **Genre-Based Weighting**:
+   - Each movie has associated genres
+   - The algorithm assigns weights to genres based on user interactions:
+     - Recently viewed: 1x weight with recency bias (more recent = higher weight)
+     - Favorites: 2x weight (strongest signal of preference)
+     - Watchlist: 1.5x weight (indication of interest)
+
+3. **Score Calculation**:
+   - For each genre, a cumulative score is calculated
+   - Genres are then ranked by their total score
+
+4. **Movie Selection**:
+   - The algorithm fetches movies from the top 2 highest-scoring genres
+   - Removes duplicates and movies the user has already interacted with
+   - Sorts by popularity to ensure quality recommendations
+   - Limits to 12 movies for optimal UI presentation
+
+5. **Fallback Mechanism**:
+   - If insufficient genre data is available, the system falls back to using the user's interaction history directly
+
+## Development Process & Thought Process
+
+### Design Philosophy
+
+1. **User-Centric Approach**:
+   - The design prioritizes content discovery and visual appeal
+   - Dark mode by default for a cinematic experience
+   - Micro-interactions and animations to enhance engagement
+   - Responsive design for all device sizes
+
+2. **Performance Optimization**:
+   - Lazy loading and code splitting
+   - Image optimization with Next.js Image component
+   - Debounced search to minimize API calls
+   - Memoization of expensive calculations
+
+3. **Progressive Enhancement**:
+   - Core functionality works without JavaScript
+   - Enhanced experience with animations when available
+   - Fallbacks for unsupported features
+
+### Development Challenges & Solutions
+
+1. **State Management**:
+   - Challenge: Managing user preferences across the app
+   - Solution: Custom hooks with localStorage persistence and proper initialization checks
+
+2. **API Integration**:
+   - Challenge: Rate limits and data consistency
+   - Solution: Structured API functions with error handling and fallbacks
+
+3. **Responsive Design**:
+   - Challenge: Maintaining visual appeal across devices
+   - Solution: Mobile-first approach with tailored layouts for different breakpoints
+
+4. **Animation Performance**:
+   - Challenge: Ensuring smooth animations without affecting performance
+   - Solution: Using Framer Motion with hardware acceleration and limiting animations on lower-end devices
+
+5. **Recommendation Quality**:
+   - Challenge: Generating relevant recommendations with limited user data
+   - Solution: Weighted genre algorithm with fallbacks and popularity sorting
+
+## Future Enhancements
+
+1. **Authentication**:
+   - User accounts with cloud synchronization
+   - Social features like sharing and following
+
+2. **Advanced Recommendations**:
+   - Machine learning model for more personalized suggestions
+   - Collaborative filtering based on similar users
+
+3. **Content Expansion**:
+   - TV shows and series integration
+   - Streaming service availability information
+
+4. **Performance**:
+   - Server-side rendering optimization
+   - Image loading strategies for slower connections
+
+5. **Accessibility**:
+   - Enhanced keyboard navigation
+   - Screen reader optimizations
+   - Color contrast improvements
+
+## Conclusion
+
+The Moxie movie app was designed to provide a premium movie discovery experience with a focus on personalization and visual appeal. By leveraging modern web technologies and thoughtful UX design, the app offers a seamless way for users to explore, save, and discover movies tailored to their preferences.
+
+The development process prioritized user experience, performance, and maintainability, resulting in a robust application that can be extended with additional features in the future.
+

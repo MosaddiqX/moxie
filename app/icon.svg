@@ -1,0 +1,22 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Film reel outer circle -->
+  <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="2" />
+  
+  <!-- Film reel inner circle -->
+  <circle cx="24" cy="24" r="6" fill="#2A9D94" />
+  
+  <!-- Film sprocket holes -->
+  <circle cx="24" cy="8" r="3" fill="#2A9D94" />
+  <circle cx="24" cy="40" r="3" fill="#2A9D94" />
+  <circle cx="8" cy="24" r="3" fill="#2A9D94" />
+  <circle cx="40" cy="24" r="3" fill="#2A9D94" />
+  
+  <!-- Diagonal sprocket holes -->
+  <circle cx="13" cy="13" r="2.5" fill="#2A9D94" />
+  <circle cx="35" cy="13" r="2.5" fill="#2A9D94" />
+  <circle cx="13" cy="35" r="2.5" fill="#2A9D94" />
+  <circle cx="35" cy="35" r="2.5" fill="#2A9D94" />
+  
+  <!-- Film strip -->
+  <path d="M46 24C46 36.1503 36.1503 46 24 46C11.8497 46 2 36.1503 2 24" stroke="#2A9D94" stroke-width="2" stroke-dasharray="4 4" />
+</svg>
