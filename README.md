@@ -1,6 +1,5 @@
 # 🎬 Moxie Movie App - Development Documentation
 
----
 
 ## 🚀 Overview
 
