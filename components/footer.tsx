@@ -134,7 +134,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="#"
+                  href="https://github.com/MosaddiqX/movie_app/blob/main/README.md#-moxie-movie-app---development-documentation"
                   className="text-muted-foreground hover:text-foreground transition-colors"
                 >
                   About Us
